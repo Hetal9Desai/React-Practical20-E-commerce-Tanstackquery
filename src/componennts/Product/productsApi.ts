@@ -1,7 +1,7 @@
 import axios from "axios";
 import type { Product } from "../../types/Product";
 
-const BASE = process.env.REACT_APP_API_BASE;
+const BASE = import.meta.env.VITE_API_BASE;
 
 export const fetchProducts = (ownerId: string) =>
   axios
