@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useNavigate, Link as RouterLink } from "react-router-dom";
-import { useAppDispatch, useAppSelector } from "../app/hooks";
-import { signin } from "../features/auth/authSlice";
+import { useAppDispatch, useAppSelector } from "../../Hooks/hooks";
+import { signin } from "../auth/authSlice";
 import {
   Box,
   Button,

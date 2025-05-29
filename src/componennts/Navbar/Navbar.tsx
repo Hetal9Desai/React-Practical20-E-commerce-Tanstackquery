@@ -10,9 +10,9 @@ import {
 import SearchIcon from "@mui/icons-material/Search";
 import { styled, alpha } from "@mui/material/styles";
 import { Link as RouterLink, useNavigate, useLocation } from "react-router-dom";
-import { useAppSelector, useAppDispatch } from "../app/hooks";
-import { setSearchTerm } from "../features/search/searchSlice";
-import { logout } from "../features/auth/authSlice";
+import { useAppSelector, useAppDispatch } from "../../Hooks/hooks";
+import { setSearchTerm } from "../Search/searchSlice";
+import { logout } from "../auth/authSlice";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",

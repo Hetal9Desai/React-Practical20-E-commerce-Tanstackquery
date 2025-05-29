@@ -3,7 +3,7 @@ import {
   createAsyncThunk,
   type PayloadAction,
 } from "@reduxjs/toolkit";
-import * as api from "../../api/authApi";
+import * as api from "./authApi";
 
 export interface AuthResponse {
   user: api.UserRecord;

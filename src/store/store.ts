@@ -1,10 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit";
-import authReducer from "../features/auth/authSlice";
-import searchReducer from "../features/search/searchSlice";
+import authReducer from "../componennts/auth/authSlice";
+import productsReducer from "../componennts/Product/productSlice";
+import searchReducer from "../componennts/Search/searchSlice"; // import your search slice reducer
 
 export const store = configureStore({
   reducer: {
     auth: authReducer,
+    products: productsReducer,
     search: searchReducer,
   },
   middleware: (getDefault) => getDefault().concat(),

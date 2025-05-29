@@ -9,9 +9,9 @@ import {
   Box,
 } from "@mui/material";
 import { useForm } from "react-hook-form";
-import { useAppSelector } from "../app/hooks";
-import * as api from "../api/productsApi";
-import type { Product } from "../types/Product";
+import { useAppSelector } from "../../Hooks/hooks";
+import * as api from "./productsApi";
+import type { Product } from "../../types/Product";
 
 interface FormValues {
   name: string;

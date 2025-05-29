@@ -1,7 +1,7 @@
 import React, { useRef, useEffect, useState } from "react";
 import { useNavigate, Link as RouterLink } from "react-router-dom";
-import { useAppDispatch, useAppSelector } from "../app/hooks";
-import { signup } from "../features/auth/authSlice";
+import { useAppDispatch, useAppSelector } from "../../Hooks/hooks";
+import { signup } from "../auth/authSlice";
 
 import {
   Box,

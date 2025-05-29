@@ -1,5 +1,5 @@
 import axios from "axios";
-import type { Product } from "../types/Product";
+import type { Product } from "../../types/Product";
 
 const URL = "http://localhost:3001/products";
 
