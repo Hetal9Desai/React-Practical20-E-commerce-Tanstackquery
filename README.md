@@ -44,4 +44,8 @@ Users can sign up, sign in, create/read/update/delete their own products, search
   - JSON-Server
 
 ## Deploy Link:
-https://lucky-arithmetic-f32e7f.netlify.app/
+## Frontend Deploy Link:
+https://gentle-kitten-718666.netlify.app/
+
+## Backend Deploy Link:
+https://backend-1-8l5r.onrender.com
