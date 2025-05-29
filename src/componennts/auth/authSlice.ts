@@ -9,10 +9,12 @@ export interface AuthResponse {
   user: api.UserRecord;
   token: string;
 }
+
 export interface SigninCredentials {
   email: string;
   password: string;
 }
+
 export interface SignupCredentials extends SigninCredentials {
   fullName: string;
 }
@@ -22,7 +24,7 @@ function getErrorMessage(err: unknown): string {
   return String(err);
 }
 
-export const signup = createAsyncThunk<void, SignupCredentials>(
+export const signup = createAsyncThunk<void, SignupCredentials, { rejectValue: string }>(
   "auth/signup",
   async (creds, { rejectWithValue }) => {
     try {
@@ -37,23 +39,28 @@ export const signin = createAsyncThunk<
   AuthResponse,
   SigninCredentials,
   { rejectValue: string }
->("auth/signin", async (creds, { rejectWithValue }) => {
-  try {
-    const resp = await api.fetchUsers();
-    const users = resp.data;
-    const found = users.find(
-      (u) => u.email === creds.email && u.password === creds.password
-    );
-    if (!found) {
-      return rejectWithValue("Invalid email or password");
-    }
+>(
+  "auth/signin",
+  async (creds, { rejectWithValue }) => {
+    try {
+   
+      const users = await api.fetchUsers();
 
-    const fakeToken = btoa(`${found.id}:${found.email}`);
-    return { user: found, token: fakeToken };
-  } catch (err: unknown) {
-    return rejectWithValue(getErrorMessage(err) || "Network error");
+      const found = users.find(
+        (u) => u.email === creds.email && u.password === creds.password
+      );
+      if (!found) {
+        return rejectWithValue("Invalid email or password");
+      }
+
+      // here you could replace with a real token flow
+      const fakeToken = btoa(`${found.id}:${found.email}`);
+      return { user: found, token: fakeToken };
+    } catch (err: unknown) {
+      return rejectWithValue(getErrorMessage(err) || "Network error");
+    }
   }
-});
+);
 
 interface AuthState {
   user: api.UserRecord | null;
@@ -85,6 +92,7 @@ const authSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
+     
       .addCase(signup.pending, (state) => {
         state.status = "loading";
         state.error = null;
@@ -94,9 +102,10 @@ const authSlice = createSlice({
       })
       .addCase(signup.rejected, (state, action) => {
         state.status = "failed";
-        state.error = (action.payload as string) || action.error.message!;
+        state.error = action.payload ?? action.error.message ?? null;
       })
 
+     
       .addCase(signin.pending, (state) => {
         state.status = "loading";
         state.error = null;
@@ -107,14 +116,13 @@ const authSlice = createSlice({
           state.status = "idle";
           state.user = action.payload.user;
           state.token = action.payload.token;
-
           localStorage.setItem("user", JSON.stringify(action.payload.user));
           localStorage.setItem("token", action.payload.token);
         }
       )
       .addCase(signin.rejected, (state, action) => {
         state.status = "failed";
-        state.error = action.payload || action.error.message!;
+        state.error = action.payload ?? action.error.message ?? null;
       });
   },
 });
