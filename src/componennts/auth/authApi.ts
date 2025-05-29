@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BASE = "http://localhost:3001/users";
+const BASE = process.env.REACT_APP_API_BASE;
 
 export interface UserRecord {
   id: string;
@@ -9,12 +9,14 @@ export interface UserRecord {
   password: string;
 }
 
-export const fetchUsers = () => axios.get<UserRecord[]>(BASE);
+export const fetchUsers = () =>
+  axios.get<UserRecord[]>(`${BASE}/users`).then((res) => res.data);
 
 export interface SignupCredentials {
   fullName: string;
   email: string;
   password: string;
 }
+
 export const register = (userData: SignupCredentials) =>
-  axios.post(BASE, userData);
+  axios.post<UserRecord>(`${BASE}/users`, userData).then((res) => res.data);
