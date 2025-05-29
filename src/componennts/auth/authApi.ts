@@ -1,7 +1,6 @@
 import axios from "axios";
 
-const API_URL = process.env.REACT_APP_API_URL || "http://localhost:3001";
-const BASE = `${API_URL}/users`;
+const BASE = "http://localhost:3001/users";
 
 export interface UserRecord {
   id: string;
@@ -17,6 +16,5 @@ export interface SignupCredentials {
   email: string;
   password: string;
 }
-
 export const register = (userData: SignupCredentials) =>
-  axios.post<UserRecord>(BASE, userData);
+  axios.post(BASE, userData);
