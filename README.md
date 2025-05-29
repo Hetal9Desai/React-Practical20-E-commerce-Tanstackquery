@@ -42,3 +42,6 @@ Users can sign up, sign in, create/read/update/delete their own products, search
 
 - **Backend (Mock)**
   - JSON-Server
+
+## Deploy Link:
+https://lucky-arithmetic-f32e7f.netlify.app/
