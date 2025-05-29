@@ -42,3 +42,12 @@ Users can sign up, sign in, create/read/update/delete their own products, search
 
 - **Backend (Mock)**
   - JSON-Server
+
+## How to test
+##  Frontend Link:
+https://lucky-arithmetic-f32e7f.netlify.app/
+
+##  Backend Link:
+https://backend-u4qo.onrender.com/
+https://backend-u4qo.onrender.com/users
+https://backend-u4qo.onrender.com/products
