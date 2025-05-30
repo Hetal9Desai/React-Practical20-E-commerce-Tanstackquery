@@ -42,7 +42,7 @@ export const signin = createAsyncThunk<
     const resp = await api.fetchUsers();
     const users = resp.data;
     const found = users.find(
-      (u) => u.email === creds.email && u.password === creds.password
+      (user) => user.email === creds.email && user.password === creds.password
     );
     if (!found) {
       return rejectWithValue("Invalid email or password");
