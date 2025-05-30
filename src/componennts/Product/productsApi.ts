@@ -1,21 +1,23 @@
 import axios from "axios";
 import type { Product } from "../../types/Product";
 
-const URL = "http://localhost:3001/products";
+const BASE = import.meta.env.VITE_API_BASE;
 
 export const fetchProducts = (ownerId: string) =>
-  axios.get<Product[]>(URL, { params: { ownerId } }).then((res) => res.data);
+  axios
+    .get<Product[]>(`${BASE}/products`, { params: { ownerId } })
+    .then((res) => res.data);
 
 export const fetchProduct = (id: string, ownerId: string) =>
   axios
-    .get<Product>(`${URL}/${id}`, { params: { ownerId } })
+    .get<Product>(`${BASE}/products/${id}`, { params: { ownerId } })
     .then((res) => res.data);
 
 export const createProduct = (p: Omit<Product, "id">) =>
-  axios.post<Product>(URL, p).then((res) => res.data);
+  axios.post<Product>(`${BASE}/products`, p).then((res) => res.data);
 
 export const updateProduct = (id: string, upd: Partial<Product>) =>
-  axios.put<Product>(`${URL}/${id}`, upd).then((res) => res.data);
+  axios.put<Product>(`${BASE}/products/${id}`, upd).then((res) => res.data);
 
 export const deleteProduct = (id: string | number) =>
-  axios.delete<void>(`${URL}/${id}`).then((res) => res.data);
+  axios.delete<void>(`${BASE}/products/${id}`).then((res) => res.data);
