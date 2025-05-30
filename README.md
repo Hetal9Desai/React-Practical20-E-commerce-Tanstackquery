@@ -1,6 +1,6 @@
 ## Practical-20 E-commerce App to use Tanstack query
 
-A small e-commerce application built with React, TypeScript, Material-UI, Redux Toolkit, TanStack Query and JSON-Server.  
+A small e-commerce application built with React, TypeScript, Material-UI, Redux Toolkit, TanStack Query and JSON-Server.
 Users can sign up, sign in, create/read/update/delete their own products, search & filter, and browse with infinite scroll.
 
 ## Features

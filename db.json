@@ -1,0 +1,112 @@
+{
+  "users": [
+    {
+      "id": "df23",
+      "fullName": "hetal joshi",
+      "email": "hetal@gmail.com",
+      "password": "1234567"
+    },
+    {
+      "id": "645e",
+      "fullName": "sita joshi",
+      "email": "sita@gmail.com",
+      "password": "1234567"
+    },
+    {
+      "id": "34da",
+      "fullName": "Ram Joshi",
+      "email": "ram@gmail.com",
+      "password": "1234567"
+    }
+  ],
+  "products": [
+    {
+      "id": "e407",
+      "name": "ram",
+      "description": "ram",
+      "price": "10",
+      "category": "Electronics",
+      "discount": 0,
+      "rating": "5",
+      "photo": "",
+      "ownerId": "34da"
+    },
+    {
+      "id": "a590",
+      "name": "Essence Mascara Lash Princess ",
+      "description": "The Essence Mascara Lash Princess is a popular mascara known for its volumizing and lengthening effects. Achieve dramatic lashes with this long-lasting and cruelty-free formula.",
+      "price": "200",
+      "category": "Beauty",
+      "discount": "5",
+      "rating": "4",
+      "photo": "https://cdn.dummyjson.com/product-images/beauty/essence-mascara-lash-princess/1.webp",
+      "ownerId": "645e"
+    },
+    {
+      "id": "91b4",
+      "name": "Eyeshadow Palette with Mirror edited",
+      "description": "\"The Eyeshadow Palette with Mirror offers a versatile range of eyeshadow shades for creating stunning eye looks. With a built-in mirror, it's convenient for on-the-go makeup application.\"",
+      "price": "500",
+      "category": "Beauty",
+      "discount": "3",
+      "rating": "5",
+      "photo": "https://cdn.dummyjson.com/product-images/beauty/eyeshadow-palette-with-mirror/1.webp",
+      "ownerId": "645e"
+    },
+    {
+      "id": "6660",
+      "name": "Annibale Colombo Bed",
+      "description": "The Annibale Colombo Bed is a luxurious and elegant bed frame, crafted with high-quality materials for a comfortable and stylish bedroom.\"\n",
+      "price": "10000",
+      "category": "Furniture",
+      "discount": "10",
+      "rating": "3.5",
+      "photo": "https://cdn.dummyjson.com/product-images/furniture/annibale-colombo-bed/1.webp",
+      "ownerId": "645e"
+    },
+    {
+      "id": "4015",
+      "name": "Annibale Colombo Sofa",
+      "description": "The Annibale Colombo Sofa is a sophisticated and comfortable seating option, featuring exquisite design and premium upholstery for your living room.\"\n",
+      "price": "50000",
+      "category": "Furniture",
+      "discount": "25",
+      "rating": "4.5",
+      "photo": "https://cdn.dummyjson.com/product-images/furniture/annibale-colombo-sofa/1.webp",
+      "ownerId": "645e"
+    },
+    {
+      "id": "7347",
+      "name": "The Annibale Colombo Sofa ",
+      "description": "The Annibale Colombo Sofa is a sophisticated and comfortable seating option, featuring exquisite design and premium upholstery for your living room.",
+      "price": "50000",
+      "category": "Furniture",
+      "discount": "25",
+      "rating": "4.5",
+      "photo": "https://cdn.dummyjson.com/product-images/furniture/annibale-colombo-sofa/1.webp",
+      "ownerId": "645e"
+    },
+    {
+      "id": "8df0",
+      "name": "Annibale Colombo Bed updated",
+      "description": "The Annibale Colombo Sofa is a sophisticated and comfortable seating option, featuring exquisite design and premium upholstery for your living room.",
+      "price": "50000",
+      "category": "Furniture",
+      "discount": "10",
+      "rating": "4",
+      "photo": "https://cdn.dummyjson.com/product-images/furniture/annibale-colombo-sofa/1.webp",
+      "ownerId": "645e"
+    },
+    {
+      "id": "f47e",
+      "name": "a",
+      "description": "a",
+      "price": "10",
+      "category": "a",
+      "discount": "2",
+      "rating": "3.5",
+      "photo": "https://cdn.dummyjson.com/product-images/beauty/eyeshadow-palette-with-mirror/1.webp",
+      "ownerId": "645e"
+    }
+  ]
+}
