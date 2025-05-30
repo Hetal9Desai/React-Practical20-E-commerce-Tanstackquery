@@ -9,12 +9,10 @@ export interface AuthResponse {
   user: api.UserRecord;
   token: string;
 }
-
 export interface SigninCredentials {
   email: string;
   password: string;
 }
-
 export interface SignupCredentials extends SigninCredentials {
   fullName: string;
 }
@@ -24,17 +22,16 @@ function getErrorMessage(err: unknown): string {
   return String(err);
 }
 
-export const signup = createAsyncThunk<
-  void,
-  SignupCredentials,
-  { rejectValue: string }
->("auth/signup", async (creds, { rejectWithValue }) => {
-  try {
-    await api.register(creds);
-  } catch (err: unknown) {
-    return rejectWithValue(getErrorMessage(err) || "Sign up failed");
+export const signup = createAsyncThunk<void, SignupCredentials>(
+  "auth/signup",
+  async (creds, { rejectWithValue }) => {
+    try {
+      await api.register(creds);
+    } catch (err: unknown) {
+      return rejectWithValue(getErrorMessage(err) || "Sign up failed");
+    }
   }
-});
+);
 
 export const signin = createAsyncThunk<
   AuthResponse,
@@ -42,16 +39,15 @@ export const signin = createAsyncThunk<
   { rejectValue: string }
 >("auth/signin", async (creds, { rejectWithValue }) => {
   try {
-    const users = await api.fetchUsers();
-
+    const resp = await api.fetchUsers();
+    const users = resp.data;
     const found = users.find(
-      (u) => u.email === creds.email && u.password === creds.password
+      (user) => user.email === creds.email && user.password === creds.password
     );
     if (!found) {
       return rejectWithValue("Invalid email or password");
     }
 
-    // here you could replace with a real token flow
     const fakeToken = btoa(`${found.id}:${found.email}`);
     return { user: found, token: fakeToken };
   } catch (err: unknown) {
@@ -89,7 +85,6 @@ const authSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-
       .addCase(signup.pending, (state) => {
         state.status = "loading";
         state.error = null;
@@ -99,7 +94,7 @@ const authSlice = createSlice({
       })
       .addCase(signup.rejected, (state, action) => {
         state.status = "failed";
-        state.error = action.payload ?? action.error.message ?? null;
+        state.error = (action.payload as string) || action.error.message!;
       })
 
       .addCase(signin.pending, (state) => {
@@ -112,13 +107,14 @@ const authSlice = createSlice({
           state.status = "idle";
           state.user = action.payload.user;
           state.token = action.payload.token;
+
           localStorage.setItem("user", JSON.stringify(action.payload.user));
           localStorage.setItem("token", action.payload.token);
         }
       )
       .addCase(signin.rejected, (state, action) => {
         state.status = "failed";
-        state.error = action.payload ?? action.error.message ?? null;
+        state.error = action.payload || action.error.message!;
       });
   },
 });

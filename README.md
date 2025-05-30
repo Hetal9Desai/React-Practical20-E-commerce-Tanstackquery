@@ -42,10 +42,3 @@ Users can sign up, sign in, create/read/update/delete their own products, search
 
 - **Backend (Mock)**
   - JSON-Server
-
-## Deploy Link:
-## Frontend Deploy Link:
-https://gentle-kitten-718666.netlify.app/
-
-## Backend Deploy Link:
-https://backend-1-8l5r.onrender.com
