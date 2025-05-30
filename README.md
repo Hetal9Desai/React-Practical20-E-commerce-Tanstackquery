@@ -45,11 +45,11 @@ Users can sign up, sign in, create/read/update/delete their own products, search
 
 ## How to test
 ##  Frontend Link:
-https://lucky-arithmetic-f32e7f.netlify.app/
+https://nimble-kheer-eca485.netlify.app
 
 ##  Backend Link:
-https://backend-1-8l5r.onrender.com/
+https://backend-2-38us.onrender.com
 
-https://backend-1-8l5r.onrender.com/users
+https://backend-2-38us.onrender.com/users
 
-https://backend-1-8l5r.onrender.com/products
+https://backend-2-38us.onrender.com/products
