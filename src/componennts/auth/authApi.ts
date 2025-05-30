@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BASE = "https://backend-1-8l5r.onrender.com/users";
+const BASE = "https://backend-2-38us.onrender.com/users";
 
 export interface UserRecord {
   id: string;

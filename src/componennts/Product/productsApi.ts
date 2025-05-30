@@ -1,7 +1,7 @@
 import axios from "axios";
 import type { Product } from "../../types/Product";
 
-const URL = "https://backend-1-8l5r.onrender.com/products";
+const URL = "https://backend-2-38us.onrender.com/products";
 
 export const fetchProducts = (ownerId: string) =>
   axios.get<Product[]>(URL, { params: { ownerId } }).then((res) => res.data);
