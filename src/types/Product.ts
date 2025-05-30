@@ -7,5 +7,5 @@ export interface Product {
   discount: number;
   rating: number;
   photo: string;
-  ownerId: number;
+  ownerId: string;
 }
