@@ -8,6 +8,7 @@ import { SignIn } from "./componennts/SignIn/SignIn";
 import { SignUp } from "./componennts/SignUp/SignUp";
 import { ProductList } from "./componennts/Product/ProductList";
 import { ProductForm } from "./componennts/Product/ProductForm";
+import { NotFound } from "./componennts/NotFound/NotFound";
 
 const AppRoutes: React.FC = () => {
   const { user, status } = useAppSelector((state) => state.auth);
@@ -27,6 +28,14 @@ const AppRoutes: React.FC = () => {
     setSnackbarOpen(false);
   };
 
+  const HomeRedirect = () => {
+    return user ? (
+      <Navigate to="/products" replace />
+    ) : (
+      <Navigate to="/signin" replace />
+    );
+  };
+
   return (
     <>
       <Navbar />
@@ -43,16 +52,7 @@ const AppRoutes: React.FC = () => {
       </Snackbar>
 
       <Routes>
-        <Route
-          path="/"
-          element={
-            user ? (
-              <Navigate to="/products" replace />
-            ) : (
-              <Navigate to="/signin" replace />
-            )
-          }
-        />
+        <Route path="/" element={<HomeRedirect />} />
 
         <Route element={<ProtectedRoute reverse />}>
           <Route path="signin" element={<SignIn />} />
@@ -65,16 +65,7 @@ const AppRoutes: React.FC = () => {
           <Route path="products/:id/edit" element={<ProductForm />} />
         </Route>
 
-        <Route
-          path="*"
-          element={
-            user ? (
-              <Navigate to="/products" replace />
-            ) : (
-              <Navigate to="/signin" replace />
-            )
-          }
-        />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </>
   );
